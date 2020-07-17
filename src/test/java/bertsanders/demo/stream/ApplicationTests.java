@@ -49,7 +49,6 @@ class ApplicationTests {
     assertThat(output).as("Failed to receive a message").isNotNull();
 
     BigInteger primeNumber = new ObjectMapper().readValue(output.getPayload(), BigInteger.class);
-    log.info(primeNumber.toString());
 
     assertThat(primeNumber.isProbablePrime(10)).isTrue();
   }

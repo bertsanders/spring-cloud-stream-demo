@@ -8,6 +8,10 @@ spring:
           consumer:
             max-attempts: 3
             back-off-initial-interval: 100
+            retryable-exceptions:
+              javax:
+                validation:
+                  ValidationException: false
           destination: input-topic
           group: consumer-group
           concurrency: 2
