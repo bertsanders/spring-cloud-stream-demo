@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    function:
+      definition: calculateNthPrime
+    stream:
+      bindings:
+        calculateNthPrime-in-0:
+          consumer:
+            max-attempts: 3
+            back-off-initial-interval: 100
+          destination: input-topic
+          group: consumer-group
+          concurrency: 2
+
+        calculateNthPrime-out-0:
+          destination: output-topic
